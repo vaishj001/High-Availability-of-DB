@@ -164,6 +164,5 @@ sudo -u postgres /usr/lib/postgresql/14/bin/postgres -D /var/lib/postgresql/14/m
 ```
 ├── backups.sh/                 # Backup script
 ├── Final_Project_report.pdf/   # Final project report
-├── final_slides.pdf/           # Presentation deck
 ├── README.md/                  # Project overview (this file)
 ```
