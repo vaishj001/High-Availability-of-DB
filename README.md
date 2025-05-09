@@ -1,5 +1,5 @@
 # 🐘 PostgreSQL High Availability Cluster on Azure  
-⛓️ Streaming Replication | ⚡️ Automatic Failover | ♻️ Cron-Based Backup & Restore
+                                                            ⛓️ Streaming Replication | ⚡️ Automatic Failover | ♻️ Cron-Based Backup & Restore
 
 ## 📌 Project Overview
 
@@ -95,37 +95,48 @@ Path: /var/backups/pg_backup.sh
 ```
 
 #### Backup Script logic:
-1. Verifies leadership via Patroni REST API
-2. Triggers compressed pg_basebackup
-3. Archives it with a timestamped name
-4. Removes backup folders after tarring
-5. Keeps only the 3 latest archives
+##### 1. Verifies leadership via Patroni REST API
+##### 2. Triggers compressed pg_basebackup
+##### 3. Archives it with a timestamped name
+##### 4. Removes backup folders after tarring
+##### 5. Keeps only the 3 latest archives
 
 ---
 
 ### 🔁 Restore Logic (Standalone Node)
 
-# 1. Stop PostgreSQL
+#### 1. Stop PostgreSQL
+```
 sudo pkill postgres
+```
 
-# 2. Clean old data
+#### 2. Clean old data
+```
 sudo rm -rf /var/lib/postgresql/14/main
+```
 
-# 3. Extract backup
+#### 3. Extract backup
+```
 sudo tar -xzf /var/backups/postgres/basebackup_<timestamp>.tar.gz -C /var/lib/postgresql/14/main
+```
 
-# 4. Restore config files (pg_basebackup does not include them)
+#### 4. Restore config files (pg_basebackup does not include them)
+```
 sudo cp /etc/postgresql/14/main/postgresql.conf /var/lib/postgresql/14/main/
 sudo cp /etc/postgresql/14/main/pg_hba.conf /var/lib/postgresql/14/main/
 sudo chown postgres:postgres /var/lib/postgresql/14/main/*.conf
+```
 
-# 5. Set ownership and permissions
+#### 5. Set ownership and permissions
+```
 sudo chown -R postgres:postgres /var/lib/postgresql/14/main
 sudo chmod 700 /var/lib/postgresql/14/main
+```
 
-# 6. Start PostgreSQL manually
+#### 6. Start PostgreSQL manually
+```
 sudo -u postgres /usr/lib/postgresql/14/bin/postgres -D /var/lib/postgresql/14/main
-
+```
 ---
 
 ## ✅ Final Takeaways
