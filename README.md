@@ -1,5 +1,5 @@
 # 🐘 PostgreSQL High Availability Cluster on Azure  
-                                                            ⛓️ Streaming Replication | ⚡️ Automatic Failover | ♻️ Cron-Based Backup & Restore
+  ⛓️ Streaming Replication | ⚡️ Automatic Failover | ♻️ Cron-Based Backup & Restore
 
 ## 📌 Project Overview
 
@@ -89,8 +89,9 @@ The cluster supports:
 
 #### Cron Job: 
 To automate backups every 30 minutes
-```
+
 Path: /var/backups/pg_backup.sh
+```
 */30 * * * * /var/backups/pg_backup.sh
 ```
 
