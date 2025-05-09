@@ -101,7 +101,6 @@ Path: /var/backups/pg_backup.sh
 - Removes backup folders after tarring
 - Keeps only the 3 latest archives
 
----
 
 ### 🔁 Restore Logic (Standalone Node)
 
@@ -141,23 +140,23 @@ sudo -u postgres /usr/lib/postgresql/14/bin/postgres -D /var/lib/postgresql/14/m
 
 ## ✅ Final Takeaways
 
-✓ Streaming replication works across 3 nodes
-✓ Failover from primary to secondary-1, auto-promotion confirmed in logs
-✓ pg_basebackup ran only on the leader and created timestamped tar.gz files
-✓ Restore tested with only one node running to avoid overwrite by cluster
-✓ Standalone node restored from .tar.gz backup using manual process
-✓ pgAdmin confirmed data match post-restore
-✓ Non-leader nodes rejected writes as expected (read-only mode enforced)
+##### ✓ Streaming replication works across 3 nodes
+##### ✓ Failover from primary to secondary-1, auto-promotion confirmed in logs
+##### ✓ pg_basebackup ran only on the leader and created timestamped tar.gz files
+##### ✓ Restore tested with only one node running to avoid overwrite by cluster
+##### ✓ Standalone node restored from .tar.gz backup using manual process
+##### ✓ pgAdmin confirmed data match post-restore
+##### ✓ Non-leader nodes rejected writes as expected (read-only mode enforced)
 
 ---
 
 ## 🧠 Lessons Learned
 
-🧩 Patroni is far more stable and customizable than pg_auto_failover
-📁 Backup files don’t include postgresql.conf or pg_hba.conf — back them up manually
-⚙️ Cron-based automation can break silently — always check logs
-🔄 Restores in HA clusters must coordinate with etcd and leader elections
-🧪 Verification is critical — use pgAdmin or psql to confirm rows and schema match
+##### 🧩 Patroni is far more stable and customizable than pg_auto_failover
+##### 📁 Backup files don’t include postgresql.conf or pg_hba.conf — back them up manually
+##### ⚙️ Cron-based automation can break silently — always check logs
+##### 🔄 Restores in HA clusters must coordinate with etcd and leader elections
+##### 🧪 Verification is critical — use pgAdmin or psql to confirm rows and schema match
 
 ---
 
