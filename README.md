@@ -140,13 +140,13 @@ sudo -u postgres /usr/lib/postgresql/14/bin/postgres -D /var/lib/postgresql/14/m
 
 ## ✅ Final Takeaways
 
-##### ✓ Streaming replication works across 3 nodes
-##### ✓ Failover from primary to secondary-1, auto-promotion confirmed in logs
-##### ✓ pg_basebackup ran only on the leader and created timestamped tar.gz files
-##### ✓ Restore tested with only one node running to avoid overwrite by cluster
-##### ✓ Standalone node restored from .tar.gz backup using manual process
-##### ✓ pgAdmin confirmed data match post-restore
-##### ✓ Non-leader nodes rejected writes as expected (read-only mode enforced)
+- Streaming replication works across 3 nodes
+- Failover from primary to secondary-1, auto-promotion confirmed in logs
+- pg_basebackup ran only on the leader and created timestamped tar.gz files
+- Restore tested with only one node running to avoid overwrite by cluster
+- Standalone node restored from .tar.gz backup using manual process
+- pgAdmin confirmed data match post-restore
+- Non-leader nodes rejected writes as expected (read-only mode enforced)
 
 ---
 
