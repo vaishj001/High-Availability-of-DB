@@ -83,7 +83,7 @@ The cluster supports:
 ### 🔄 Failover Testing
 - Simulated node failures using kill -9 and systemctl stop
 - Patroni logs and REST status confirmed role transitions
-- Write attempts on replicas correctly rejected
+- Write attempts on replicas correctly rejected, access verified
 
 ### 💾 Backup Logic
 
