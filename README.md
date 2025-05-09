@@ -87,20 +87,19 @@ The cluster supports:
 
 ### 💾 Backup Logic
 
-#### Cron Job: 
-To automate backups every 30 minutes
+#### Cron Job: To automate backups every 30 minutes
 
-Path: /var/backups/pg_backup.sh
 ```
+Path: /var/backups/pg_backup.sh
 */30 * * * * /var/backups/pg_backup.sh
 ```
 
 #### Backup Script logic:
-##### 1. Verifies leadership via Patroni REST API
-##### 2. Triggers compressed pg_basebackup
-##### 3. Archives it with a timestamped name
-##### 4. Removes backup folders after tarring
-##### 5. Keeps only the 3 latest archives
+- Verifies leadership via Patroni REST API
+- Triggers compressed pg_basebackup
+- Archives it with a timestamped name
+- Removes backup folders after tarring
+- Keeps only the 3 latest archives
 
 ---
 
